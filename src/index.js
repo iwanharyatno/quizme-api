@@ -1,6 +1,6 @@
 import e from 'express';
 import cors from 'cors';
-import apiV1 from '@routes/index.js';
+import apiV1 from './v1/routes/index.js';
 
 const app = e();
 

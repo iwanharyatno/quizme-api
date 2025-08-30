@@ -1,7 +1,6 @@
-import { generateQuestions } from "@utils/gemini.js";
-import type { Request, Response } from "express";
+import { generateQuestions } from "../utils/gemini.js";
 
-export async function generate(req: Request, res: Response) {
+export async function generate(req, res) {
     const { prompt } = req.body;
     
     const questionsJSON = await generateQuestions(prompt);

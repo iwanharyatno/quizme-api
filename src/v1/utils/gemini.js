@@ -5,18 +5,7 @@ dotenv.config();
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
-export interface QuizQuestion {
-    question: string;
-    answers: string[];
-    correct_answer_index: number;
-}
-
-export interface Quiz {
-    title: string,
-    questions: QuizQuestion[]
-}
-
-export async function generateQuestions(prompt: string): Promise<Quiz[] | undefined> {
+export async function generateQuestions(prompt) {
     const response = await ai.models.generateContent({
         model: "gemini-2.5-flash",
         contents: [
@@ -65,7 +54,7 @@ export async function generateQuestions(prompt: string): Promise<Quiz[] | undefi
     if (!text) return undefined;
 
     try {
-        const parsed: Quiz[] = JSON.parse(text);
+        const parsed = JSON.parse(text);
         return parsed;
     } catch (err) {
         console.error("Failed to parse Gemini response:", err);

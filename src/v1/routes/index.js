@@ -1,8 +1,8 @@
 import express from 'express';
 
 // Routes
-import quizRoutes from '@routes/quiz/index.js';
-import pingRoutes from '@routes/ping/index.js';
+import quizRoutes from './quiz/index.js';
+import pingRoutes from './ping/index.js';
 
 const router = express.Router();
 

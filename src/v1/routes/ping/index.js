@@ -1,4 +1,4 @@
-import { ping } from "@controllers/ping-controller.js";
+import { ping } from "../../controllers/ping-controller.js";
 import express from "express";
 
 const router = express.Router();
